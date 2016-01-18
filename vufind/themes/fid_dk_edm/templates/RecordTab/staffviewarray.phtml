@@ -1,0 +1,47 @@
+<?
+    // Set page title.
+    $this->headTitle($this->translate('DM2E') . ': ' . $this->driver->getBreadcrumb());
+?>
+<table class="citation table table-striped">
+  <? foreach ($this->driver->getRawData() as $field => $values): ?>
+    <tr>
+      <th style="width: 21%;"><?=$this->escapeHtml($field)?></th>
+      <td>
+        <? if (!is_array($values)) { $values = array($values); } ?>
+        <? foreach ($values as $value): ?>
+        <!-- display full record field as indented xml string -->
+          <? if (substr($value,0,8)=="<rdf:RDF") : ?>
+              <pre><?=formatXML($value);?></pre>
+          <? else: ?>
+            <?=$this->escapeHtml(is_array($value) ? print_r($value) : $value)?><br />
+          <? endif;?>
+        <? endforeach; ?>
+      </td>
+    </tr>
+  <? endforeach; ?>
+</table>
+
+<!-- Formats the full record field to a structured, highlighted, indented xml string to make debugging easier -->
+<? function formatXML($value) {
+
+     $xml = new SimpleXMLElement($value);
+     $dom = new DOMDocument("1.0","UTF-8");
+     $dom->preserveWhiteSpace = false;
+     $dom->formatOutput = true;
+     $dom->loadXML($xml->asXML());
+     $str = $dom->saveXML($dom->documentElement);
+     $str = htmlentities($str, $encoding=ini_get("UTF-8"));
+     $tag = '#0000BB';
+     $att = '#FF4500';
+     $find = array(
+        '~(\s[a-z].*?="[a-zA-Z0-9\/#].*?")~', // Highlight attributes
+        '~(&lt;(\?|[a-z]).*?&gt;)~',                // Highlight opening tag
+        '~(&lt;/[a-z].*?&gt;)~');            // Highlight closing tag
+     $replace = array(
+        '<span style="color:'.$att.';">$1</span>',
+        '<span style="color:'.$tag.';">$1</span>',
+        '<span style="color:'.$tag.';">$1</span>');
+     return preg_replace($find, $replace, $str);
+}
+
+?>

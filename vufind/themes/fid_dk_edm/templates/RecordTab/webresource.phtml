@@ -1,0 +1,29 @@
+<?
+    $webresources = $this->driver->getClass("edm:WebResource");
+    $wrInfos = $this->driver->getContextualInfos($webresources);
+
+    // Set page title.
+    $this->headTitle($this->translate('Links') . ': ' . $this->driver->getBreadcrumb());
+
+?>
+<table class="citation table table-striped">
+  <? foreach ($wrInfos as $key => $wrInfo): ?>
+  <tr>
+    <th style="width: 21%;"><?=$key?></th>
+    <td><? if (!empty($wrInfo["about"])) :
+               $contentDisplayed = true;
+               $about = $wrInfo["about"]; ?>
+               <a href="<?=$about?>"><?=$this->escapeHtml($about);?></a><br />
+        <? foreach ($wrInfo["infos"] as $info) : ?>
+               <?=$this->escapeHtml($info->nodeValue); ?>
+        <? endforeach; ?>
+        <? endif; ?>
+    </td>
+  </tr>
+<? endforeach; ?>
+
+<? if (!isset($contentDisplayed) || !$contentDisplayed): // Avoid errors if there were no rows above ?>
+  <tr><td><?=$this->transEsc('no_webresource')?></td></tr>
+<? endif; ?>
+
+</table>

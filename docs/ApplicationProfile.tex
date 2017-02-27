@@ -1,0 +1,486 @@
+\documentclass[12pt, a4paper, margin=2in]{report}
+\usepackage[latin1]{inputenc}
+\usepackage[landscape,left=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+
+\definecolor{dc}{gray}{0.9}
+\definecolor{dcterms}{gray}{0.8}
+\definecolor{edm}{cmyk}{0.2,0.05,0,0}
+\definecolor{skos}{cmyk}{0,0.2,0,0}
+\definecolor{dm2e}{cmyk}{0,0.2,0.2,0}
+\definecolor{rdagr2}{cmyk}{0.05,0.05,0,0}
+\definecolor{wgs}{cmyk}{0.2,0.2,0.2,0}
+\definecolor{owl}{cmyk}{0.1,0.3,0,0}
+\definecolor{crm}{cmyk}{0,0.2,0.2,0.1}
+\definecolor{eclap}{cmyk}{0.1,0,0.2,0}
+\definecolor{pro}{cmyk}{0,0.2,0.1,0}
+\definecolor{bibo}{cmyk}{0,0.1,0.2,0}
+\definecolor{gndo}{cmyk}{0,0,0.2,0}
+\setlength\arrayrulewidth{1pt}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{blue},
+  keywordstyle=\color{orange},
+  morekeywords={xmlns,version,rdf,about,resource,xml,lang}% list your attributes here
+}
+
+\title{EDM Application Profile for the \\ Specialised Information Service Performing Arts \\[0.5cm] \includegraphics{fid-dk_logo.jpg}}
+\author{Julia Beck (\texttt{j.beck@uni-frankfurt.de}) \\ University Library Frankfurt am Main}
+\date{Version: \today}
+ 
+\begin{document}
+ 
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+\tableofcontents
+\vfill
+  
+\section*{ore:Aggregation \faCubes}
+\addcontentsline{toc}{section}{\protect\numberline{}ore:Aggregation}%
+Describes the aggregation.\\[0.5cm]
+\begin{tabular}{|c|c|l|l|l|p{3cm}| } 
+ \hline
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+ \hline
+\rowcolor{edm}& & edm:aggregatedCHO & Aggregated Object & - & M+N+R \\ 
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& & edm:provider & Aggregator & - & M+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& & edm:dataProvider & Data Provider & - & M+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& & edm:hasView & Shows the object somehow & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& & edm:isShownAt & Image of object in viewer/context & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& & edm:isShownBy & Plain Image & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}\multirow{-7}{*}{\textbf{EDM}} & \multirow{-7}{*}{\textbf{EDM}} & edm:object & Thumbnail / Cover & - & O+N+R \\
+ \hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+<ore:Aggregation rdf:about="http://performing-arts.eu/aggregation/TRA_9783839425725">
+    <edm:aggregatedCHO rdf:resource="http://performing-arts.eu/item/TRA_9783839425725"/>
+    <edm:dataProvider rdf:resource="http://performing-arts.eu/agent/gnd/1058035266"/>
+    <edm:isShownAt rdf:resource="http://dx.doi.org.fid-darstellende-kunst.idm.oclc.org/10.14361/
+                                    transcript.9783839425725"/>
+    <edm:object rdf:resource="http://www.degruyter.com/doc/cover/9783839425725.jpg"/>
+    <edm:provider rdf:resource="http://performing-arts.eu/agent/FIDDK"/>
+</ore:Aggregation>
+\end{lstlisting}
+
+\section*{em:ProvidedCHO \faCube}
+\addcontentsline{toc}{section}{\protect\numberline{}edm:ProvidedCHO}%
+Describes the provided cultural heritage object.\\[0.5cm]
+\begin{tabular}{|c|c|l|p{7cm}|l|p{3cm}| } 
+\hline
+\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+\hline
+\rowcolor{edm}& & edm:currentLocation & Current location of physical object & - &  O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& & edm:isRelatedTo & Related Object (same level reference) & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& \multirow{-3}{*}{\textbf{EDM}} & edm:wasPresentAt & Connection to an event (object created because of or during event) & - & O+R+R \\
+\hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& &  dc:type & Type of object & - & M+R?+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& & dc:title & Title & - & M+N+L \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& &  dc:description & Description of object & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& &  dc:subject & Subject term & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& & dc:creator & Creator & - & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& & dc:contributor & Contributor & - & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& & dc:publisher & Publisher & - & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& \multirow{-8}{*}{\textbf{DC}}& dc:type & Type of physical object & - & O+R+R \\
+\hhline{*{1}{|>{\arrayrulecolor{dc}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:aternative & Alternative Title & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:rightsHolder & Rights Holder & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:issued & Date of publication & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:created & Date of creation & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:temporal & Not furthered specified date & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:spatial & Not furthered specified place & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:isPartOf & In (hierarchical reference) & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}\multirow{-18}{*}{\textbf{EDM}} & \multirow{-7}{*}{\textbf{DCTERMS}} & dcterms:hasPart & Contains (hierarchical reference) & - & O+R+R \\
+\hline
+\end{tabular}
+\begin{tabular}{|c|c|l|p{7cm}|l|p{3cm}| } 
+\hline
+\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+\hline
+\rowcolor{dm2e} & & dm2e:subTitle & Subtitle & dc:title & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dm2e} & & dm2e:publishedAt & Place of Publication & dc:coverage & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dm2e}& & dm2e:artist & Artist & dc:creator & O+R+B  \\
+\hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dm2e}& & dm2e:painter & Painter & dc:creator & O+R+B  \\
+\hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dm2e}& & dm2e:sponsor & Sponsor & edm:hasMet & O+R+B  \\
+\hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dm2e}& & dm2e:portrayed & Portrayed Person & edm:hasMet & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dm2e}& \multirow{-6}{*}{\textbf{DM2E}} & dm2e:holdingInstitution & Institution holding physical object & edm:hasMet & O+R+B  \\
+\hhline{*{1}{|>{\arrayrulecolor{dm2e}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{pro}& & pro:author & Author & dc:creator & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{pro}& & pro:translator & Translator & dc:contributor & O+R+B  \\
+\hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{pro}& & pro:printer & Printer & dc:contributor & O+R+B  \\
+\hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{pro}& \multirow{-4}{*}{\textbf{PRO}} & pro:illustrator & Illustrator & dc:creator & O+R+B  \\
+\hhline{*{1}{|>{\arrayrulecolor{pro}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{bibo}& & bibo:editor & Editor & edm:hasMet & O+R+B  \\
+\hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{bibo}\multirow{-12}{*}{\textbf{DM2E}}& \multirow{-2}{*}{\textbf{BIBO}} & bibo:recipient & Recipient & edm:hasMet & O+R+B  \\
+\hline
+\rowcolor{eclap}\textbf{ECLAP} & \textbf{ECLAP} & eclap:recordingDate & Recording Date & dc:date & O+R+R \\
+ \hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+<edm:ProvidedCHO rdf:about="http://performing-arts.eu/item/TMD_133374">
+    <gndo:photographer>Lantin, Rolf</gndo:photographer>
+    <dcterms:extent>1 Foto</dcterms:extent>
+    <dc:description xml:lang="de">Von links nach rechts: Cornelie Gebühr als Anna Andrejewna, Ehmi Bessel als
+     Maria Andrejewna, Fritz Wendel als Iwan Alexandrowitsch, (2 Personen, die noch nicht identifiziert sind),
+     Franz Everth als Anton Antonowitsch, (2 Personenk, die noch nicht identifiziert sind). Alle Personen sitzen
+     auf einer Bank nebeneinander.</dc:description>
+    <dc:format>Schwarz-Weiß Fotografie auf Tonpapier</dc:format>
+    <dc:identifier>http://www.duesseldorf.de/dkult/DE-MUS-037616/133374</dc:identifier>
+    <dc:identifier>TM_F63</dc:identifier>
+    <dc:identifier>133374</dc:identifier>
+    <dc:subject rdf:resource="http://performing-arts.eu/agent/TMD_27828"/>
+    <dc:subject rdf:resource="http://performing-arts.eu/agent/gnd/116154519"/>
+    <dc:subject rdf:resource="http://performing-arts.eu/agent/gnd/117284440"/>
+    <dc:subject rdf:resource="http://performing-arts.eu/agent/gnd/116612355"/>
+    <dc:title xml:lang="de">Gogol: Der Revisor</dc:title>
+    <dc:language>de</dc:language>
+    <dc:description xml:lang="de">Szenenfoto</dc:description>
+    <dc:type rdf:resource="http://d-nb.info/gnd/4045895-7"/>
+    <dcterms:created rdf:resource="http://performing-arts.eu/timespan/1927-01-01T00:00:00Z_1927-31-12T23:59:59Z"/>
+    <dcterms:extent>15,8 x 23 cm (6 1/4 x 9 1/16 in.)</dcterms:extent>
+    <edm:isRelatedTo rdf:resource="http://performing-arts.eu/item/TMD_32300"/>
+    <dcterms:provenance>Theatermuseum der Landeshauptstadt Düsseldorf, Düsseldorf</dcterms:provenance>
+    <eclap:performancePlace>Schauspielhaus Düsseldorf Dumont-Lindemann</eclap:performancePlace>
+  </edm:ProvidedCHO>
+\end{lstlisting}
+
+\newpage
+\section*{edm:WebResource \faExternalLink}
+\addcontentsline{toc}{section}{\protect\numberline{}edm:WebResource}%
+Describes a Web Resource.\\[0.5cm]
+\begin{tabular}{|c|c|l|l|l|p{3cm}| } 
+ \hline
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+ \hline
+\rowcolor{dc}& & dc:description & Description text for link & - & M+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}\multirow{-2}{*}{\textbf{EDM}} & \multirow{-2}{*}{\textbf{DC}} & dc:format & MIME Types & - & M+R+L \\
+ \hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+<edm:WebResource rdf:about="http://dx.doi.org.fid-darstellende-kunst.idm.oclc.org/10.14361/
+                         transcript.9783839425725">
+   <dc:description xml:lang="de">Volltext</dc:description>
+   <dc:format>text/html</dc:format>
+</edm:WebResource>
+\end{lstlisting}
+
+\newpage
+\section*{edm:Place \faMapMarker}
+\addcontentsline{toc}{section}{\protect\numberline{}edm:Place}%
+Describes a place.\\[0.5cm]
+\begin{tabular}{|c|c|l|l|p{2cm}|p{3cm}| } 
+ \hline
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+ \hline
+\rowcolor{skos}& & skos:prefLabel & Preferred name of the place & - & M+N+L \\ 
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& & skos:altLabel & Alternative name of the place & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& \multirow{-3}{*}{\textbf{SKOS}} & skos:note & Notes & - & O+R+L \\
+\hhline{*{1}{|>{\arrayrulecolor{wgs}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{wgs}& & wgs84\_pos:lat & Latitude (decimal degree) & - & O+N+L \\
+\hhline{*{2}{|>{\arrayrulecolor{wgs}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{wgs}& \multirow{-2}{*}{\textbf{WGS84\_POS}} & wgs84\_pos:long & Longitude (decimal degree) & - & O+N+L \\
+\hhline{*{1}{|>{\arrayrulecolor{owl}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{owl}\multirow{-7}{*}{\textbf{EDM}} & {\textbf{OWL}} & owl:sameAs & Link to another description of the same place & - & O+R+R \\
+ \hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+<edm:Place rdf:about="http://performing-arts.eu/place/4006510-8">
+   <skos:prefLabel xml:lang="de">Bielefeld</skos:prefLabel>
+   <owl:sameAs rdf:resource=" http://www.geonames.org/2949186/bielefeld.html"/>
+   <wgs84_pos:long>008.533333</wgs84_pos:long>
+   <wgs84_pos:lat>052.333330</wgs84_pos:lat>
+</edm:Place>
+\end{lstlisting}
+
+\newpage
+\section*{edm:TimeSpan \faHourglassHalf}
+\addcontentsline{toc}{section}{\protect\numberline{}edm:TimeSpan}%
+Describes a timespan.\\[0.5cm]
+\begin{tabular}{|c|c|l|l|p{2cm}|p{3cm}|} 
+ \hline
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+ \hline
+\rowcolor{edm} & & edm:begin & Beginning of the timespan & - & O+N+L \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& \multirow{-2}{*}{\textbf{EDM}} & edm:end & End of the timespan & - & O+N+L \\
+\hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& & skos:prefLabel & Preferred name of the timespan & - & M+N+L \\ 
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& & skos:altLabel & Alternative name of the timespan & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& \multirow{-3}{*}{\textbf{SKOS}} & skos:note & Notes & - & O+R+L \\
+\hhline{*{1}{|>{\arrayrulecolor{skos}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{crm}& & crm:P79F.beginning\_is\_qualified\_by & Certainty of timespan (data/granularity) & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{crm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{crm}\multirow{-7}{*}{\textbf{EDM}} &  \multirow{-2}{*}{\textbf{CRM}} & crm:P80F.end\_is\_qualified\_by & Certainty of timespan (data/granularity) & - & O+R+L \\
+ \hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+<edm:TimeSpan rdf:about="1998-12-01T00:00:00Z_1999-10-03T23:59:59Z">
+    <skos:prefLabel xml:lang="de">01.12.1998-03.10.1999</skos:prefLabel>
+    <edm:begin>01.12.1998</edm:begin>
+    <edm:end>03.10.1999</edm:end>
+    <crm:P79F.beginning\_is\_qualified\_by>uncertainty_data</crm:P79F.beginning\_is\_qualified\_by>
+</edm:TimeSpan>
+\end{lstlisting}
+
+\newpage
+\section*{skos:Concept \faCloud}
+\addcontentsline{toc}{section}{\protect\numberline{}skos:Concept}%
+Describes a concept.\\[0.5cm]
+\begin{tabular}{|c|c|l|l|l|p{3cm}| } 
+ \hline
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+ \hline
+\rowcolor{skos}& & skos:prefLabel & Preferred name of the concept & - & M+N+L \\ 
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& & skos:altLabel & Alternative name of the concept & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& & skos:broader & Link to broader concept & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& \multirow{-4}{*}{\textbf{SKOS}} & skos:narrower & Link to narrower concept & - & O+R+R \\
+\hhline{*{1}{|>{\arrayrulecolor{skos}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{owl}\multirow{-5}{*}{\textbf{EDM}} & {\textbf{OWL}} & owl:sameAs & Link to another description of the same concept & - & O+R+R \\
+ \hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+TODO
+\end{lstlisting}
+
+\newpage
+\section*{edm:Agent \faUsers}
+\addcontentsline{toc}{section}{\protect\numberline{}edm:Agent}%
+Describes an agent.\\[0.5cm]
+\begin{tabular}{|c|c|l|l|p{2cm}|p{3cm}| } 
+ \hline
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+ \hline
+ \rowcolor{edm} & {\textbf{EDM}} & edm:hasMet & In Relation to another resource & - & O+R+R \\
+ \hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& & skos:prefLabel & Preferred name of the person/organization & - & M+N+L \\ 
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& \multirow{-2}{*}{\textbf{SKOS}} & skos:altLabel & Alternative name of the person/organization & - & O+R+L \\
+\hhline{*{1}{|>{\arrayrulecolor{skos}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{owl}\multirow{-5}{*}{\textbf{EDM}} & {\textbf{OWL}} & owl:sameAs & Link to another description of the same person/organization & - & O+R+R \\
+ \hline
+\end{tabular}
+\subsection*{Example}
+See examples in foaf:Person/foaf:Organization.
+
+\newpage
+\subsection*{foaf:Person \faUser}
+\addcontentsline{toc}{subsection}{\protect\numberline{}foaf:Person}%
+Describes a person.\\[0.5cm]
+\begin{tabular}{|c|c|l|l|p{2cm}|p{3cm}| } 
+ \hline
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+ \hline
+\rowcolor{rdagr2}& & rdaGr2:placeOfBirth & Place of Birth & - & O+N+R \\ 
+\hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{rdagr2}& & rdaGr2:placeOfDeath & Place of Death & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{rdagr2}& & rdaGr2:dateOfBirth & Date of Birth & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{rdagr2}& & rdaGr2:dateOfDeath & Date of Death & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{rdagr2}& & rdaGr2:gender & Gender & - & O+N+L \\
+\hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{rdagr2}& & rdaGr2:biographicalInformation & Biographical Information & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{rdagr2}\multirow{-7}{*}{\textbf{EDM}} & \multirow{-7}{*}{\textbf{RDAGR2}} & rdaGr2:professionOrOccupation & Profession of Occupation & - & O+R+L \\
+ \hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+TODO
+\end{lstlisting}
+
+\newpage
+\subsection*{foaf:Organization \faUniversity}
+\addcontentsline{toc}{subsection}{\protect\numberline{}foaf:Organization}%
+Describes an Organization.\\[0.5cm]
+\begin{tabular}{|c|c|l|l|p{2cm}|p{3cm}| }
+ \hline
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+ \hline
+\rowcolor{rdagr2}& & rdaGr2:dateOfEstablishment & Date of the institution’s establishment & - & O+N+R \\
+\hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{rdagr2}\multirow{-2}{*}{\textbf{EDM}} & \multirow{-2}{*}{\textbf{RDAGR2}} & rdaGr2:dateOfTermination & Date of the institution’s termination & - & O+N+R \\
+ \hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+<foaf:Organization rdf:about="http://performing-arts.eu/agent/gnd/1058035266">
+    <skos:prefLabel>Transcript GbR</skos:prefLabel>
+    <skos:altLabel>transcript Verlag</skos:altLabel>
+    <rdaGr2:dateOfEstablishment rdf:resource="1997-11-01T00:00:00Z_1997-11-01T23:59:59Z"/>
+    <foaf:homepage rdf:resource="http://www.transcript-verlag.de"/>
+    <owl:sameAs rdf:resource="http://d-nb.info/gnd/1058035266"/>
+</foaf:Organization>
+\end{lstlisting}
+
+\newpage
+\section*{edm:Event \includegraphics[width=0.8cm]{dancers.png}}
+\addcontentsline{toc}{section}{\protect\numberline{}edm:Event}%
+Describes an Event.\\[0.5cm]
+\begin{tabular}{|c|c|l|p{6cm}|l|p{3cm}| } 
+\hline
+\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+\hline
+\rowcolor{edm}& & edm:happenedAt & Place where the event took place (not further specified) & - & O+R+R \\ 
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& & edm:occuredAt & Timespan when the event took place (not further specified) & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{edm}& \multirow{-3}{*}{\textbf{EDM}} & edm:hasType & Type of Event & - & M+R+R \\
+\hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& & dc:subject & Subject term & - & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& \multirow{-2}{*}{\textbf{DC}} & dc:contributor & Contributor & - & O+R+B \\
+\hhline{*{1}{|>{\arrayrulecolor{dc}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& & skos:prefLabel & Preferred name of the event & - & M+N+L \\ 
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& & skos:altLabel & Alternative name of the event & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{skos}& \multirow{-3}{*}{\textbf{SKOS}} & skos:note & Information about the event & - & O+R+L \\
+\hhline{*{1}{|>{\arrayrulecolor{skos}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{owl}\multirow{-9}{*}{\textbf{EDM}} & {\textbf{OWL}} & owl:sameAs & Link to another description of the same event & - & O+R+R \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|l|p{6cm}|l|p{3cm}| } 
+\hline
+\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+\hline
+\rowcolor{eclap}& & eclap:performingArtsType & Type of performing arts (theatre, dance, performance art,...) & dc:type & O+R+R \\ 
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:genre & Genre (drama, comedy, ...) & dc:subject & O+R+R \\ 
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:performancePlace & Performance Place & edm:happenedAt & O+R+R \\ 
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:performanceDate & Performance Date & edm:occuredAt & O+R+R \\ 
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:firstPerformanceDate & Premiere Date & edm:occuredAt & O+R+R \\ 
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:actor & Actor & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:performer & Performer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:director & Director & dc:ontributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:setDesigner & Set Designer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:scenographer & Scenographer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:costumeDesigner & CostumeDesigner & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:choreographer & Choreographer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:dramaturge & Dramaturge & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:playwright & Playwright & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:lightDesigner & Light Designer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:soundDesigner & Sound Designer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:composer & Composer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:assistantDirecotr & Assistant Director & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:producer & Producer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:performingArtsGroup & Performing Arts Group & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:casting & Casting & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:singer & Singer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:adaptor & Adaptor & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:musician & Musician & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}& & eclap:maskDesigner & Mask Designer & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}\multirow{-26}{*}{\textbf{ECLAP}} & \multirow{-26}{*}{\textbf{ECLAP}} & eclap:dancer & Dancer & dc:contributor & O+R+B \\
+\hline
+\rowcolor{gndo}& & gndo:directorOfPhotography & Recorder & dc:contributor & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{gndo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{gndo}\multirow{-2}{*}{\textbf{GNDO}} & \multirow{-2}{*}{\textbf{GNDO}} & gndo:librettist & Librettist & dc:contributor & O+R+B \\
+\hline
+\end{tabular}
+
+\subsection*{Example}
+\begin{lstlisting}[language=XML]
+TODO
+\end{lstlisting}
+
+\end{document}

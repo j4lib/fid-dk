@@ -41,7 +41,7 @@
 Properties that contain links to an instance of edm:ProvidedCHO in the attribute @rdf:resource.\\[0.5cm]
 \begin{tabular}{|c|c|l|l|l|p{3cm}| } 
  \hline
- \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{From \textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
  \hline
 \rowcolor{edm}& & edm:aggregatedCHO & Aggregated Object & - & G \\
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -58,7 +58,7 @@ Properties that contain links to an instance of edm:ProvidedCHO in the attribute
 Properties that contain links to an instance of edm:Webresource in the attribute @rdf:resource.\\[0.5cm]
 \begin{tabular}{|c|c|l|l|l|p{3cm}| } 
  \hline
- \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{From \textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
 \hline
 \rowcolor{edm}& & edm:hasView & Shows the object somehow & - & G \\
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -76,7 +76,7 @@ Properties that contain links to an instance of edm:Webresource in the attribute
 Properties that contain links to an instance of edm:Timespan in the attribute @rdf:resource.\\[0.5cm]
 \begin{tabular}{|c|c|l|l|p{3cm}|p{2.5cm}| } 
  \hline
- \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\  
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{From \textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\  
  \hline
 \rowcolor{edm}& \textbf{EDM} & edm:occuredAt & Timespan when the event took place & - & E \\
 \hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
@@ -86,7 +86,7 @@ Properties that contain links to an instance of edm:Timespan in the attribute @r
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}& & dcterms:created & Date of creation & - & O \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dcterms}& \multirow{-2}{*}{\textbf{DCTERMS}} & dcterms:temporal & Not furthered specified date & - & O / A / E \\
+\rowcolor{dcterms}& \multirow{-2}{*}{\textbf{DCTERMS}} & dcterms:temporal & Not furthered specified date & - & O / A \\
 \hhline{*{1}{|>{\arrayrulecolor{dcterms}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{rdagr2}& & dateOfBirth & Date of birth of a person & - & A \\
 \hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -96,11 +96,11 @@ Properties that contain links to an instance of edm:Timespan in the attribute @r
 \hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{rdagr2}\multirow{-9}{*}{\textbf{EDM}} & \multirow{-4}{*}{\textbf{RDAGR2}} & rdaGr2:dateOfTermination & Date of termination of an organization & - & A \\
 \hline
-\rowcolor{eclap} & & eclap:performanceDate & Performance Date & edm:occuredAt & E \\
+\rowcolor{eclap} & & eclap:performanceDate & Performance Date & edm:occuredAt & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:firstPerformanceDate &Premiere & edm:occuredAt & E \\
+\rowcolor{eclap}& & eclap:firstPerformanceDate & Premiere & edm:occuredAt & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}\multirow{-3}{*}{\textbf{ECLAP}}  & \multirow{-3}{*}{\textbf{ECLAP}} & eclap:recordingDate & Recording Date & dc:date & O \\
+\rowcolor{eclap}\multirow{-3}{*}{\textbf{*ECLAP}}  & \multirow{-3}{*}{\textbf{*ECLAP}} & eclap:recordingDate & Recording Date & dc:date & O \\
 \hline
 \end{tabular}
 \vfill
@@ -110,7 +110,7 @@ Properties that contain links to an instance of edm:Timespan in the attribute @r
 Properties that contain links to an instance of edm:Place in the attribute @rdf:resource.\\[0.5cm]
 \begin{tabular}{|c|c|l|l|l|p{3cm}| } 
 \hline
-\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
+\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{From \textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
 \hline
 \rowcolor{edm}& & edm:currentLocation & Current location of physical object & - & O \\
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -124,9 +124,9 @@ Properties that contain links to an instance of edm:Place in the attribute @rdf:
 \hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{rdagr2}\multirow{-6}{*}{\textbf{EDM}} & \multirow{-2}{*}{\textbf{RDAGR2}} & rdaGr2:placeOfDeath & Place of death of a person & - & A \\
 \hline
-\rowcolor{dm2e}DM2E & DM2E & dm2e:publishedAt & Place of Publication & dc:coverage & O \\
+\rowcolor{dm2e}\textbf{*DM2E} & \textbf{*DM2E} & dm2e:publishedAt & Place of Publication & dc:coverage & O \\
 \hline
-\rowcolor{eclap}ECLAP & ECLAP & eclap:performancePlace & Performance Place & edm:happenedAt & E \\
+\rowcolor{eclap}\textbf{*ECLAP} & \textbf{*ECLAP} & eclap:performancePlace & Performance Place & edm:happenedAt & *E \\
 \hline
 \end{tabular}
 \vfill
@@ -136,15 +136,15 @@ Properties that contain links to an instance of edm:Place in the attribute @rdf:
 Properties that contain links to an instance of skos:Concept in the attribute @rdf:resource.\\[0.5cm]
 \begin{tabular}{|c|c|l|p{8cm}|p{2cm}|p{3cm}| } 
  \hline
- \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{From \textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
  \hline
 \rowcolor{dc}& & dc:subject & Subject term & - & O / E \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}\multirow{-2}{*}{\textbf{EDM}}& \multirow{-2}{*}{\textbf{DC}}& dc:type & Type of physical object & - & O \\
 \hline
-\rowcolor{eclap}& & eclap:genre & Genre (drama, comedy, ….) & dc:subject & E \\
+\rowcolor{eclap}& & eclap:genre & Genre (drama, comedy, ….) & dc:subject & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}\multirow{-2}{*}{\textbf{ECLAP}} & \multirow{-2}{*}{\textbf{ECLAP}} & eclap:performingArtsType & Type of performing arts (theatre, dance, performance art, stand,…) & dc:type & E \\
+\rowcolor{eclap}\multirow{-2}{*}{\textbf{*ECLAP}} & \multirow{-2}{*}{\textbf{*ECLAP}} & eclap:performingArtsType & Type of performing arts (theatre, dance, performance art, stand,…) & dc:type & *E \\
  \hline
 \end{tabular}
 
@@ -153,7 +153,7 @@ Properties that contain links to an instance of skos:Concept in the attribute @r
 Properties that contain links to an instance of edm:Event in the attribute @rdf:resource.\\[0.5cm]
 \begin{tabular}{|c|c|l|p{8cm}|p{2cm}|p{3cm}| } 
  \hline
- \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{From \textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
  \hline
 \rowcolor{edm}& \textbf{EDM} & edm:wasPresentAt & For object that is connected to an event (created because of or during event) or a person that contributed to an event & - & O / A \\
 \hhline{*{1}{|>{\arrayrulecolor{dcterms}}-}*{5}{|>{\arrayrulecolor{black}}-}}
@@ -167,7 +167,7 @@ Properties that contain links to an instance of edm:Event in the attribute @rdf:
 Properties that contain links to an instance of edm:Agent (foaf:Person or foaf:Organization) in the attribute @rdf:resource. These properties can contain literals (when just the name of the person is known).\\[0.5cm]
 \begin{tabular}{|c|c|l|p{7cm}|p{3cm}|p{3cm}| } 
  \hline
- \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} &\textbf{\textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} &\textbf{From \textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
  \hline  
 \rowcolor{edm}& & edm:provider & Aggregator & - & G \\
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -175,25 +175,25 @@ Properties that contain links to an instance of edm:Agent (foaf:Person or foaf:O
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{edm}& \multirow{-3}{*}{\textbf{EDM}} & edm:hasMet & Agent that had to do with other Agent & - & A \\
 \hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& & dc:creator & Creator & - & O / E \\
+\rowcolor{dc}& & dc:creator & Creator & - & O / *E \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& & dc:contributor & Contributor & - & O / E \\
+\rowcolor{dc}& & dc:contributor & Contributor & - & O / *E \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& & dc:publisher & Publisher & - & O \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& \multirow{-3}{*}{\textbf{DC}} & dc:subject & Subject Term & - & O / E \\
+\rowcolor{dc}& \multirow{-3}{*}{\textbf{DC}} & dc:subject & Subject Term & - & O / *E \\
 \hhline{*{1}{|>{\arrayrulecolor{dc}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}\multirow{-8}{*}{\textbf{EDM}}& \textbf{DCTERMS} & dcterms:rightsHolder & Rights Holder & - & O \\
 \hline
 \rowcolor{dm2e}& & dm2e:artist & Artist & dc:creator & O \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}& & dm2e:painter & Painter & dc:creator & O \\
+\rowcolor{dm2e}& & dm2e:painter & Painter & *dc:creator & O \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}& & dm2e:sponsor & Sponsor & edm:hasMet & O / E \\
+\rowcolor{dm2e}& & dm2e:sponsor & Sponsor & edm:hasMet & O / *E \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dm2e}& & dm2e:portrayed & Portrayed Person & edm:hasMet & O \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}& \multirow{-5}{*}{\textbf{DM2E}} & dm2e:holdingInstitution & Institution holding physical object & edm:hasMet & O \\
+\rowcolor{dm2e}& \multirow{-5}{*}{\textbf{*DM2E}} & dm2e:holdingInstitution & Institution holding physical object & edm:hasMet & O \\
 \hhline{*{1}{|>{\arrayrulecolor{dm2e}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{pro}& & pro:author & Author & dc:creator & O \\
 \hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -201,70 +201,70 @@ Properties that contain links to an instance of edm:Agent (foaf:Person or foaf:O
 \hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{pro}& & pro:printer & Printer & dc:contributor & O \\
 \hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{pro}& \multirow{-4}{*}{\textbf{PRO}} & pro:illustrator & Illustrator & dc:creator & O \\
+\rowcolor{pro}& \multirow{-4}{*}{\textbf{*PRO}} & pro:illustrator & Illustrator & dc:creator & O \\
 \hhline{*{1}{|>{\arrayrulecolor{pro}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{bibo}& & bibo:editor & Editor & edm:hasMet & O \\
 \hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{bibo}\multirow{-11}{*}{\textbf{DM2E}}& \multirow{-2}{*}{\textbf{BIBO}} & bibo:recipient & Recipient & edm:hasMet & O \\
+\rowcolor{bibo}\multirow{-11}{*}{\textbf{*DM2E}}& \multirow{-2}{*}{\textbf{*BIBO}} & bibo:recipient & Recipient & edm:hasMet & O \\
 \hline
 \end{tabular}
 \begin{tabular}{|c|c|l|p{7cm}|p{3cm}|p{3cm}| } 
  \hline
- \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} &\textbf{\textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
+ \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} &\textbf{From \textcolor{red}{O}bject/ A\textcolor{red}{g}gregation/ \textcolor{red}{A}gent/\textcolor{red}{E}vent}\\ 
  \hline  
-\rowcolor{eclap}& & eclap:actor & Actor & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:actor & Actor & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:performer & Performer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:performer & Performer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:director & Director & dc:ontributor & E \\
+\rowcolor{eclap}& & eclap:director & Director & dc:ontributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:setDesigner & Set Designer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:setDesigner & Set Designer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:scenographer & Scenographer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:scenographer & Scenographer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:costumeDesigner & CostumeDesigner & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:costumeDesigner & CostumeDesigner & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:choreographer & Choreographer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:choreographer & Choreographer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:dramaturge & Dramaturge & dc:contributor & O / E \\
+\rowcolor{eclap}& & eclap:dramaturge & Dramaturge & dc:contributor & *O / *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:playwright & Playwright & dc:contributor & O / E \\
+\rowcolor{eclap}& & eclap:playwright & Playwright & dc:contributor & *O / *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:lightDesigner & Light Designer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:lightDesigner & Light Designer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:soundDesigner & Sound Designer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:soundDesigner & Sound Designer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:composer & Composer & dc:creator & E \\
+\rowcolor{eclap}& & eclap:composer & Composer & dc:creator & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:assistantDirecotr & Assistant Director & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:assistantDirecotr & Assistant Director & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:producer & Producer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:producer & Producer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:performingArtsGroup & Performing Arts Group & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:performingArtsGroup & Performing Arts Group & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:casting & Casting & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:casting & Casting & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:singer & Singer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:singer & Singer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:adaptor & Adaptor & dc:contributor & O /E \\
+\rowcolor{eclap}& & eclap:adaptor & Adaptor & dc:contributor & *O / *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:musician & Musician & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:musician & Musician & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:maskDesigner & Mask Designer & dc:contributor & E \\
+\rowcolor{eclap}& & eclap:maskDesigner & Mask Designer & dc:contributor & *E \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}\multirow{-21}{*}{\textbf{ECLAP}} & \multirow{-21}{*}{\textbf{ECLAP}} & eclap:dancer & Dancer & dc:contributor & E \\
+\rowcolor{eclap}\multirow{-21}{*}{\textbf{*ECLAP}} & \multirow{-21}{*}{\textbf{*ECLAP}} & eclap:dancer & Dancer & dc:contributor & *E \\
 \hhline{*{1}{|>{\arrayrulecolor{eclap}}-}*{5}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{gndo}& & gndo:directorOfPhotography & Recorder & dc:contributor & O / E \\
+\rowcolor{gndo}& & gndo:directorOfPhotography & Recorder & dc:contributor & *O / *E \\
 \hhline{*{2}{|>{\arrayrulecolor{gndo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{gndo}& & gndo:photographer & Photographer & dc:creator & O \\
+\rowcolor{gndo}& & gndo:photographer & Photographer & dc:creator & *O \\
 \hhline{*{2}{|>{\arrayrulecolor{gndo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{gndo}& & gndo:engraver & Engraver & dc:creator & O \\
+\rowcolor{gndo}& & gndo:engraver & Engraver & dc:creator & *O \\
 \hhline{*{2}{|>{\arrayrulecolor{gndo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{gndo}& & gndo:librettist & Librettist & dc:creator (O) & O / E \\
+\rowcolor{gndo}& & gndo:librettist & Librettist & dc:creator (O) & *O / *E \\
 \hhline{*{2}{|>{\arrayrulecolor{gndo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{gndo}& & gndo:manufacturer & Manufacturer & dc:creator & O \\
+\rowcolor{gndo}& & gndo:manufacturer & Manufacturer & dc:creator & *O \\
 \hhline{*{2}{|>{\arrayrulecolor{gndo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{gndo}\multirow{-6}{*}{\textbf{GNDO}} & \multirow{-6}{*}{\textbf{GNDO}} & gndo:designer & Designer & dc:creator & O \\
+\rowcolor{gndo}\multirow{-6}{*}{\textbf{*GNDO}} & \multirow{-6}{*}{\textbf{*GNDO}} & gndo:designer & Designer & dc:creator & *O \\
  \hline
 \end{tabular}
 

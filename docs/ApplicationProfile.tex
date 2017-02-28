@@ -71,11 +71,11 @@ Describes the aggregation.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{edm}& & edm:hasView & Shows the object somehow & - & O+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{edm}& & edm:isShownAt & Image of object in viewer/context & - & O+N+R \\
+\rowcolor{edm}& & edm:isShownAt & Image of object in viewer/context & - & *O+N+R \\
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{edm}& & edm:isShownBy & Plain Image & - & O+N+R \\
+\rowcolor{edm}& & edm:isShownBy & Plain Image & - & *O+N+R \\
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{edm}\multirow{-7}{*}{\textbf{EDM}} & \multirow{-7}{*}{\textbf{EDM}} & edm:object & Thumbnail / Cover & - & O+N+R \\
+\rowcolor{edm}\multirow{-7}{*}{\textbf{EDM}} & \multirow{-7}{*}{\textbf{EDM}} & edm:object & Thumbnail / Cover & - & *O+N+R \\
  \hline
 \end{tabular}
 
@@ -104,19 +104,19 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{edm}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{edm}& \multirow{-3}{*}{\textbf{EDM}} & edm:wasPresentAt & Connection to an event (object created because of or during event) & - & O+R+R \\
 \hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& &  dc:type & Type of object & - & M+R?+R \\
+\rowcolor{dc}& &  dc:type & Type of object & - & M+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& &  dc:identifier & Identifier of object & - & O+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& & dc:title & Title & - & M+N+L \\
+\rowcolor{dc}& & dc:title & Title & - & M+*N+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& &  dc:description & Description of object & - & O+R+L \\
+\rowcolor{dc}& &  dc:description & Description of object & - & *O+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& &  dc:rights & Rights & - & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& &  dc:language & Language (ISO 639-1) & - & O+R+L \\
+\rowcolor{dc}& &  dc:language & Language (ISO 639-1) & - & *O+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& &  dc:subject & Subject term & - & O+R+R \\
+\rowcolor{dc}& &  dc:subject & Subject term & - & *O+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& & dc:creator & Creator & - & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -138,17 +138,17 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}& & dcterms:rightsHolder & Rights Holder & - & O+N+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dcterms}& & dcterms:issued & Date of publication & - & O+N+R \\
+\rowcolor{dcterms}& & dcterms:issued & Date of publication & - & O+*N+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dcterms}& & dcterms:created & Date of creation & - & O+N+R \\
+\rowcolor{dcterms}& & dcterms:created & Date of creation & - & O+*N+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dcterms}& & dcterms:temporal & Not furthered specified date & - & O+R+R \\
+\rowcolor{dcterms}& & dcterms:temporal & Not furthered specified date & - & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}& & dcterms:spatial & Not furthered specified place & - & O+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}& & dcterms:extent & Extent, size or duration of Resource & - & O+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dcterms}& & dcterms:tableOfContents & List of sub-units. & - & O+N+B \\
+\rowcolor{dcterms}& & dcterms:tableOfContents & List of sub-units. & - & O+*N+*B \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}& & dcterms:isPartOf & In (hierarchical reference) & - & O+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -162,15 +162,15 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dm2e} & & dm2e:callNumber & Call number of archival item & dc:identifier & O+N+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}& & dm2e:artist & Artist & dc:creator & O+R+B  \\
+\rowcolor{dm2e}& & dm2e:artist & Artist & dc:creator & O+R+*B  \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}& & dm2e:painter & Painter & dc:creator & O+R+B  \\
+\rowcolor{dm2e}& & dm2e:painter & Painter & dc:creator & O+R+*B  \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}& & dm2e:sponsor & Sponsor & edm:hasMet & O+R+B  \\
+\rowcolor{dm2e}& & dm2e:sponsor & Sponsor & edm:hasMet & O+R+*B  \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}& & dm2e:portrayed & Portrayed Person & edm:hasMet & O+R+B \\
+\rowcolor{dm2e}& & dm2e:portrayed & Portrayed Person & edm:hasMet & O+R+*B \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}\multirow{-7}{*}{\textbf{DM2E}}& \multirow{-7}{*}{\textbf{DM2E}} & dm2e:holdingInstitution & Institution holding physical object & edm:hasMet & O+R+B  \\
+\rowcolor{dm2e}\multirow{-7}{*}{\textbf{DM2E}}& \multirow{-7}{*}{\textbf{DM2E}} & dm2e:holdingInstitution & Institution holding physical object & edm:hasMet & O+R+*B  \\
 \hline
 \end{tabular}
 
@@ -178,13 +178,13 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hline
 \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
 \hline
-\rowcolor{pro}& & pro:author & Author & dc:creator & O+R+B \\
+\rowcolor{pro}& & pro:author & Author & dc:creator & O+R+*B \\
 \hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{pro}& & pro:translator & Translator & dc:contributor & O+R+B  \\
+\rowcolor{pro}& & pro:translator & Translator & dc:contributor & O+R+*B  \\
 \hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{pro}& & pro:printer & Printer & dc:contributor & O+R+B  \\
+\rowcolor{pro}& & pro:printer & Printer & dc:contributor & O+R+*B  \\
 \hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{pro}& \multirow{-4}{*}{\textbf{PRO}} & pro:illustrator & Illustrator & dc:creator & O+R+B  \\
+\rowcolor{pro}& \multirow{-4}{*}{\textbf{PRO}} & pro:illustrator & Illustrator & dc:creator & O+R+*B  \\
 \hhline{*{1}{|>{\arrayrulecolor{pro}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{bibo}& & bibo:isbn & ISBN & dc:identifier & O+N+L  \\
 \hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -192,9 +192,9 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{bibo}& & bibo:volume & Volume & dc:identifier & O+N+L  \\
 \hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{bibo}& & bibo:editor & Editor & edm:hasMet & O+R+B  \\
+\rowcolor{bibo}& & bibo:editor & Editor & edm:hasMet & O+R+*B  \\
 \hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{bibo}\multirow{-9}{*}{\textbf{DM2E}}& \multirow{-5}{*}{\textbf{BIBO}} & bibo:recipient & Recipient & edm:hasMet & O+R+B  \\
+\rowcolor{bibo}\multirow{-9}{*}{\textbf{DM2E}}& \multirow{-5}{*}{\textbf{BIBO}} & bibo:recipient & Recipient & edm:hasMet & O+R+*B  \\
 \hline
 \rowcolor{eclap}\textbf{ECLAP} & \textbf{ECLAP} & eclap:recordingDate & Recording Date & dc:date & O+R+R \\
  \hline
@@ -237,7 +237,7 @@ Describes a Web Resource.\\[0.5cm]
  \hline
  \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
  \hline
-\rowcolor{dc}& & dc:description & Description text for link & - & M+R+L \\
+\rowcolor{dc}& & dc:description & Description text for link & - & *M+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& & dc:rights & Rights & - & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -353,7 +353,7 @@ Describes an agent.\\[0.5cm]
  \hline
  \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
  \hline
- \rowcolor{edm} & {\textbf{EDM}} & edm:hasMet & In Relation to another resource & - & O+R+R \\
+ \rowcolor{edm} & {\textbf{EDM}} & edm:hasMet & In Relation to another resource & - & O+R+*B \\
  \hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{skos}& & skos:prefLabel & Preferred name of the person/organization & - & M+N+L \\ 
 \hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -435,7 +435,7 @@ Describes an Event.\\[0.5cm]
 \hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& & dc:subject & Subject term & - & O+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& \multirow{-2}{*}{\textbf{DC}} & dc:contributor & Contributor & - & O+R+B \\
+\rowcolor{dc}& \multirow{-2}{*}{\textbf{DC}} & dc:contributor & Contributor & - & O+R+*B \\
 \hhline{*{1}{|>{\arrayrulecolor{dc}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{skos}& & skos:prefLabel & Preferred name of the event & - & M+N+L \\ 
 \hhline{*{2}{|>{\arrayrulecolor{skos}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -444,12 +444,6 @@ Describes an Event.\\[0.5cm]
 \rowcolor{skos}& \multirow{-3}{*}{\textbf{SKOS}} & skos:note & Information about the event & - & O+R+L \\
 \hhline{*{1}{|>{\arrayrulecolor{skos}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{owl}\multirow{-9}{*}{\textbf{EDM}} & {\textbf{OWL}} & owl:sameAs & Link to another description of the same event & - & O+R+R \\
-\hline
-\end{tabular}
-
-\begin{tabular}{|c|c|l|p{6cm}|l|p{3cm}| } 
-\hline
-\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
 \hline
 \rowcolor{eclap}& & eclap:performingArtsType & Type of performing arts (theatre, dance, performance art,...) & dc:type & O+R+R \\ 
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -461,11 +455,17 @@ Describes an Event.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}& & eclap:firstPerformanceDate & Premiere Date & edm:occuredAt & O+R+R \\ 
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{eclap}\multirow{-6}{*}{\textbf{*ECLAP}} & \multirow{-6}{*}{\textbf{*ECLAP}} & eclap:director & Director & dc:contributor & O+R+B \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|l|p{6cm}|l|p{3cm}| } 
+\hline
+\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+\hline
 \rowcolor{eclap}& & eclap:actor & Actor & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}& & eclap:performer & Performer & dc:contributor & O+R+B \\
-\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:director & Director & dc:ontributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}& & eclap:setDesigner & Set Designer & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -501,11 +501,11 @@ Describes an Event.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}& & eclap:maskDesigner & Mask Designer & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}\multirow{-26}{*}{\textbf{ECLAP}} & \multirow{-26}{*}{\textbf{ECLAP}} & eclap:dancer & Dancer & dc:contributor & O+R+B \\
+\rowcolor{eclap}\multirow{-20}{*}{\textbf{*ECLAP}} & \multirow{-20}{*}{\textbf{*ECLAP}} & eclap:dancer & Dancer & dc:contributor & O+R+B \\
 \hline
 \rowcolor{gndo}& & gndo:directorOfPhotography & Recorder & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{gndo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{gndo}\multirow{-2}{*}{\textbf{GNDO}} & \multirow{-2}{*}{\textbf{GNDO}} & gndo:librettist & Librettist & dc:contributor & O+R+B \\
+\rowcolor{gndo}\multirow{-2}{*}{\textbf{*GNDO}} & \multirow{-2}{*}{\textbf{*GNDO}} & gndo:librettist & Librettist & dc:contributor & O+R+B \\
 \hline
 \end{tabular}
 

@@ -17,7 +17,7 @@
 \definecolor{skos}{cmyk}{0,0.2,0,0}
 \definecolor{dm2e}{cmyk}{0,0.2,0.2,0}
 \definecolor{rdagr2}{cmyk}{0.05,0.05,0,0}
-\definecolor{wgs}{cmyk}{0.2,0.2,0.2,0}
+\definecolor{wgs}{cmyk}{0.1,0.2,0.1,0}
 \definecolor{owl}{cmyk}{0.1,0.3,0,0}
 \definecolor{crm}{cmyk}{0,0.2,0.2,0.1}
 \definecolor{eclap}{cmyk}{0.1,0,0.2,0}
@@ -106,9 +106,15 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{1}{|>{\arrayrulecolor{edm}}-}*{5}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& &  dc:type & Type of object & - & M+R?+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& &  dc:identifier & Identifier of object & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& & dc:title & Title & - & M+N+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& &  dc:description & Description of object & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& &  dc:rights & Rights & - & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}& &  dc:language & Language (ISO 639-1) & - & O+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& &  dc:subject & Subject term & - & O+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -118,11 +124,19 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dc}& & dc:publisher & Publisher & - & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}& \multirow{-8}{*}{\textbf{DC}}& dc:type & Type of physical object & - & O+R+R \\
-\hhline{*{1}{|>{\arrayrulecolor{dc}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}\multirow{-14}{*}{\textbf{EDM}}& \multirow{-11}{*}{\textbf{DC}}& dc:type & Type of physical object & - & O+R+R \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|l|p{7cm}|l|p{3cm}| } 
+\hline
+\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+\hline
 \rowcolor{dcterms}& & dcterms:aternative & Alternative Title & - & O+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dcterms}& & dcterms:rightsHolder & Rights Holder & - & O+N+R \\
+\rowcolor{dcterms}& & dcterms:provenance & Provenance & - & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:rightsHolder & Rights Holder & - & O+N+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}& & dcterms:issued & Date of publication & - & O+N+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -132,18 +146,21 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}& & dcterms:spatial & Not furthered specified place & - & O+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:extent & Extent, size or duration of Resource & - & O+R+L \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dcterms}& & dcterms:tableOfContents & List of sub-units. & - & O+N+B \\
+\hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dcterms}& & dcterms:isPartOf & In (hierarchical reference) & - & O+R+R \\
 \hhline{*{2}{|>{\arrayrulecolor{dcterms}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dcterms}\multirow{-18}{*}{\textbf{EDM}} & \multirow{-7}{*}{\textbf{DCTERMS}} & dcterms:hasPart & Contains (hierarchical reference) & - & O+R+R \\
-\hline
-\end{tabular}
-\begin{tabular}{|c|c|l|p{7cm}|l|p{3cm}| } 
-\hline
-\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+\rowcolor{dcterms}& \multirow{-11}{*}{\textbf{DCTERMS}} & dcterms:hasPart & Contains (hierarchical reference) & - & O+R+R\\
+\hhline{*{1}{|>{\arrayrulecolor{dcterms}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{owl}\multirow{-12}{*}{\textbf{EDM}} & \textbf{OWL} & owl:sameAs & Link to another instance of the CHO & - & O+R+R\\
 \hline
 \rowcolor{dm2e} & & dm2e:subTitle & Subtitle & dc:title & O+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dm2e} & & dm2e:publishedAt & Place of Publication & dc:coverage & O+R+R \\
+\hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dm2e} & & dm2e:callNumber & Call number of archival item & dc:identifier & O+N+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dm2e}& & dm2e:artist & Artist & dc:creator & O+R+B  \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
@@ -153,8 +170,14 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{dm2e}& & dm2e:portrayed & Portrayed Person & edm:hasMet & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{dm2e}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dm2e}& \multirow{-6}{*}{\textbf{DM2E}} & dm2e:holdingInstitution & Institution holding physical object & edm:hasMet & O+R+B  \\
-\hhline{*{1}{|>{\arrayrulecolor{dm2e}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dm2e}\multirow{-7}{*}{\textbf{DM2E}}& \multirow{-7}{*}{\textbf{DM2E}} & dm2e:holdingInstitution & Institution holding physical object & edm:hasMet & O+R+B  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|l|p{7cm}|l|p{3cm}| } 
+\hline
+\textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
+\hline
 \rowcolor{pro}& & pro:author & Author & dc:creator & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{pro}& & pro:translator & Translator & dc:contributor & O+R+B  \\
@@ -163,9 +186,15 @@ Describes the provided cultural heritage object.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{pro}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{pro}& \multirow{-4}{*}{\textbf{PRO}} & pro:illustrator & Illustrator & dc:creator & O+R+B  \\
 \hhline{*{1}{|>{\arrayrulecolor{pro}}-}*{5}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{bibo}& & bibo:isbn & ISBN & dc:identifier & O+N+L  \\
+\hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{bibo}& & bibo:issn & ISSN & dc:identifier & O+N+L  \\
+\hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{bibo}& & bibo:volume & Volume & dc:identifier & O+N+L  \\
+\hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{bibo}& & bibo:editor & Editor & edm:hasMet & O+R+B  \\
 \hhline{*{2}{|>{\arrayrulecolor{bibo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{bibo}\multirow{-12}{*}{\textbf{DM2E}}& \multirow{-2}{*}{\textbf{BIBO}} & bibo:recipient & Recipient & edm:hasMet & O+R+B  \\
+\rowcolor{bibo}\multirow{-9}{*}{\textbf{DM2E}}& \multirow{-5}{*}{\textbf{BIBO}} & bibo:recipient & Recipient & edm:hasMet & O+R+B  \\
 \hline
 \rowcolor{eclap}\textbf{ECLAP} & \textbf{ECLAP} & eclap:recordingDate & Recording Date & dc:date & O+R+R \\
  \hline
@@ -180,7 +209,7 @@ Describes the provided cultural heritage object.\\[0.5cm]
      Maria Andrejewna, Fritz Wendel als Iwan Alexandrowitsch, (2 Personen, die noch nicht identifiziert sind),
      Franz Everth als Anton Antonowitsch, (2 Personenk, die noch nicht identifiziert sind). Alle Personen sitzen
      auf einer Bank nebeneinander.</dc:description>
-    <dc:format>Schwarz-Weiß Fotografie auf Tonpapier</dc:format>
+    <dc:format>Schwarz-Wei\ss{} Fotografie auf Tonpapier</dc:format>
     <dc:identifier>http://www.duesseldorf.de/dkult/DE-MUS-037616/133374</dc:identifier>
     <dc:identifier>TM_F63</dc:identifier>
     <dc:identifier>133374</dc:identifier>
@@ -210,7 +239,9 @@ Describes a Web Resource.\\[0.5cm]
  \hline
 \rowcolor{dc}& & dc:description & Description text for link & - & M+R+L \\
 \hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{dc}\multirow{-2}{*}{\textbf{EDM}} & \multirow{-2}{*}{\textbf{DC}} & dc:format & MIME Types & - & M+R+L \\
+\rowcolor{dc}& & dc:rights & Rights & - & O+R+B \\
+\hhline{*{2}{|>{\arrayrulecolor{dc}}-}*{4}{|>{\arrayrulecolor{black}}-}}
+\rowcolor{dc}\multirow{-3}{*}{\textbf{EDM}} & \multirow{-3}{*}{\textbf{DC}} & dc:format & MIME Types & - & M+R+L \\
  \hline
 \end{tabular}
 
@@ -371,9 +402,9 @@ Describes an Organization.\\[0.5cm]
  \hline
  \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
  \hline
-\rowcolor{rdagr2}& & rdaGr2:dateOfEstablishment & Date of the institution’s establishment & - & O+N+R \\
+\rowcolor{rdagr2}& & rdaGr2:dateOfEstablishment & Date of the institution's establishment & - & O+N+R \\
 \hhline{*{2}{|>{\arrayrulecolor{rdagr2}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{rdagr2}\multirow{-2}{*}{\textbf{EDM}} & \multirow{-2}{*}{\textbf{RDAGR2}} & rdaGr2:dateOfTermination & Date of the institution’s termination & - & O+N+R \\
+\rowcolor{rdagr2}\multirow{-2}{*}{\textbf{EDM}} & \multirow{-2}{*}{\textbf{RDAGR2}} & rdaGr2:dateOfTermination & Date of the institution's termination & - & O+N+R \\
  \hline
 \end{tabular}
 
@@ -382,7 +413,7 @@ Describes an Organization.\\[0.5cm]
 <foaf:Organization rdf:about="http://performing-arts.eu/agent/gnd/1058035266">
     <skos:prefLabel>Transcript GbR</skos:prefLabel>
     <skos:altLabel>transcript Verlag</skos:altLabel>
-    <rdaGr2:dateOfEstablishment rdf:resource="1997-11-01T00:00:00Z_1997-11-01T23:59:59Z"/>
+    <rdaGr2:dateOfEstablishment rdf:resource="1997-11-01T00:00:00Z\_1997-11-01T23:59:59Z"/>
     <foaf:homepage rdf:resource="http://www.transcript-verlag.de"/>
     <owl:sameAs rdf:resource="http://d-nb.info/gnd/1058035266"/>
 </foaf:Organization>

@@ -449,11 +449,11 @@ Describes an Event.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}& & eclap:genre & Genre (drama, comedy, ...) & dc:subject & O+R+R \\ 
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:performancePlace & Performance Place & edm:happenedAt & O+R+R \\ 
+\rowcolor{eclap}& & eclap:actor & Actor & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:performanceDate & Performance Date & edm:occuredAt & O+R+R \\ 
+\rowcolor{eclap}& & eclap:performer & Performer & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:firstPerformanceDate & Premiere Date & edm:occuredAt & O+R+R \\ 
+\rowcolor{eclap}& & eclap:setDesigner & Set Designer & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}\multirow{-6}{*}{\textbf{*ECLAP}} & \multirow{-6}{*}{\textbf{*ECLAP}} & eclap:director & Director & dc:contributor & O+R+B \\
 \hline
@@ -463,12 +463,6 @@ Describes an Event.\\[0.5cm]
 \hline
 \textbf{Model} & \textbf{Namespace} & \textbf{Property} & \textbf{English Short Description} & \textbf{Mapping to EDM} & \textbf{\textcolor{red}{O}pt/\textcolor{red}{M}an+ \textcolor{red}{R}ep/\textcolor{red}{N}otRep+ \textcolor{red}{L}it/\textcolor{red}{R}ef/\textcolor{red}{B}oth} \\ 
 \hline
-\rowcolor{eclap}& & eclap:actor & Actor & dc:contributor & O+R+B \\
-\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:performer & Performer & dc:contributor & O+R+B \\
-\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}& & eclap:setDesigner & Set Designer & dc:contributor & O+R+B \\
-\hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}& & eclap:scenographer & Scenographer & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}& & eclap:costumeDesigner & CostumeDesigner & dc:contributor & O+R+B \\
@@ -501,7 +495,7 @@ Describes an Event.\\[0.5cm]
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
 \rowcolor{eclap}& & eclap:maskDesigner & Mask Designer & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{eclap}}-}*{4}{|>{\arrayrulecolor{black}}-}}
-\rowcolor{eclap}\multirow{-20}{*}{\textbf{*ECLAP}} & \multirow{-20}{*}{\textbf{*ECLAP}} & eclap:dancer & Dancer & dc:contributor & O+R+B \\
+\rowcolor{eclap}\multirow{-17}{*}{\textbf{*ECLAP}} & \multirow{-17}{*}{\textbf{*ECLAP}} & eclap:dancer & Dancer & dc:contributor & O+R+B \\
 \hline
 \rowcolor{gndo}& & gndo:directorOfPhotography & Recorder & dc:contributor & O+R+B \\
 \hhline{*{2}{|>{\arrayrulecolor{gndo}}-}*{4}{|>{\arrayrulecolor{black}}-}}
